@@ -19,10 +19,10 @@ class Song < ActiveRecord::Base
     self.genre.name if self.genre
   end
 
-  def note_contents=(ids)
-    ids.each do |id|
-      note = Note.find(id)
-      self.notes << note
+  def note_contents=(notes)
+    notes.each do |note|
+      n = Note.find(note)
+      self.notes << n
     end
   end
 
